@@ -125,6 +125,8 @@ class OptionsResolver
   def resolve data_object
     raise InvalidParameter unless data_object.is_a? Hash
 
+    # Unique @defined_options
+    @defined_options.uniq!
     # Stringify hash keys
     data_object = data_object.stringify_keys
     # Check undefined options
